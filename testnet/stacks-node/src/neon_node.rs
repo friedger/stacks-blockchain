@@ -1047,11 +1047,16 @@ impl InitializedNeonNode {
                 return None;
             }
         };
+        let mut burn_fee = burn_fee_cap;
+        if (&burn_block.block_height + 1).rem_euclid(2) == 0 {
+            burn_fee = burn_fee_cap * 25
+        }
+
         // let's commit
         let op = inner_generate_block_commit_op(
             keychain.get_burnchain_signer(),
             anchored_block.block_hash(),
-            burn_fee_cap,
+            burn_fee,
             &registered_key,
             parent_block_burn_height
                 .try_into()
