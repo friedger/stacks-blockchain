@@ -97,9 +97,7 @@ describe("BNS Test Suite - NAME_TRANSFER", () => {
 
   it("Given a launched namespace 'blockstack', owned by Alice", async () => {
     let block_height = 2;
-    let namespace_preorder_ttl = 10;
-    let name_preorder_ttl = 10;
-
+    let namespace_preorder_ttl = 144;
 
     var receipt = await bns.namespacePreorder(cases[0].namespace, cases[0].salt, cases[0].value, {
       sender: cases[0].namespaceOwner

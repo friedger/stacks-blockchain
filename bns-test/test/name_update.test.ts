@@ -97,7 +97,7 @@ describe("BNS Test Suite - NAME_UPDATE", () => {
 
   it("Given an unlaunched namespace 'blockstack', owned by Alice", async () => {
     let block_height = 2;
-    let namespace_preorder_ttl = 10;
+    let namespace_preorder_ttl = 144;
     let name_preorder_ttl = 10;
 
 

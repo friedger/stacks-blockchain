@@ -96,8 +96,7 @@ describe("BNS Test Suite - RACES", () => {
 
   it("Testing some races", async () => {
     let block_height = 2;
-    let namespace_preorder_ttl = 10;
-    let name_preorder_ttl = 10;
+    let namespace_preorder_ttl = 144;
 
     // Alice pre-ordering namespace 'blockstack'
     var receipt = await bns.namespacePreorder(cases[0].namespace, cases[0].salt, cases[0].value, {
@@ -105,6 +104,7 @@ describe("BNS Test Suite - RACES", () => {
     });
     expect(receipt.success).eq(true);
     expect(receipt.result).include(`${block_height+namespace_preorder_ttl}`);
+    block_height += 1;
 
     // Bob pre-ordering namespace 'blockstack'
     var receipt = await bns.namespacePreorder(cases[0].namespace, "another-salt", cases[0].value, {

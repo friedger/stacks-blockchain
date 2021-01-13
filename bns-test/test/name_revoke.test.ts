@@ -98,14 +98,14 @@ describe("BNS Test Suite - NAME_REVOKE", () => {
 
     it("Given a registered name 'bob.blockstack', initiated by Bob at block #21", async () => {
       let block_height = 2;
-      let namespace_preorder_ttl = 10;
-      let name_preorder_ttl = 10;
+      let namespace_preorder_ttl = 144;
 
       var receipt = await bns.namespacePreorder(cases[0].namespace, cases[0].salt, cases[0].value, {
         sender: cases[0].namespaceOwner
       });
       expect(receipt.success).eq(true);
       expect(receipt.result).include(`${block_height+namespace_preorder_ttl}`);
+      block_height += 1;
 
       receipt = await bns.namespaceReveal(
         cases[0].namespace,

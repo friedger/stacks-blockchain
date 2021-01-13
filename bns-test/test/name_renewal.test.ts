@@ -97,8 +97,8 @@ describe("BNS Test Suite - NAME_RENEWAL", () => {
 
   it("Given a launched namespace 'id' not requiring renewing names", async () => {
     let block_height = 2;
-    let namespace_preorder_ttl = 10;
-    let name_preorder_ttl = 10;
+    let namespace_preorder_ttl = 144;
+    let name_preorder_ttl = 144;
 
     var receipt = await bns.namespacePreorder(cases[1].namespace, cases[1].salt, cases[1].value, {
       sender: cases[1].namespaceOwner
